@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Контакты | Beauté</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Lora&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lora', serif;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://i.pinimg.com/736x/8d/0f/90/8d0f90e5a98953baec04fb85bc69b680.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      animation: fadeInBody 1s ease-in-out;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    header {
+      display: flex;
+      justify-content: flex-end;
+      padding: 40px;
+      font-family: 'DM Serif Display', serif;
+    }
+
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    nav a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      position: relative;
+      transition: all 0.4s ease;
+      font-family: 'Lora', serif;
+    }
+
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: #e6c26b;
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      transition: width 0.4s ease;
+    }
+
+    nav a:hover {
+      color: #e6c26b;
+      transform: scale(1.07);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 100px auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 50px;
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .info {
+      font-size: 18px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .info strong {
+      display: block;
+      margin-top: 20px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      text-align: left;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 30px;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      text-align: center;
+      border-radius: 40px;
+    }
+
+    .back-button:hover {
+      background-color: #e6c26b;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    .back-button::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background-color: #e6c26b;
+      transition: width 0.3s;
+    }
+
+    .back-button:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 40px 20px;
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .info {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Beauté</div>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О нас</a>
+      <a href="catalog.html">Каталог</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Контакты</h1>
+    <div class="info">
+      <p>Если у вас возникли вопросы или предложения, мы всегда готовы помочь.</p>
+
+      <strong>Email:</strong>
+      <p>support@beaute.kz</p>
+
+      <strong>Телефон:</strong>
+      <p>+7 (708) 810-73-36</p>
+
+      <strong>Адрес:</strong>
+      <p>г. Семей, проспект Абая 107, ТРЦ "Abai Boll", бутик 27</p>
+
+      <strong>Часы работы:</strong>
+      <p>Пн – Пт: 10:00 – 20:00<br>Сб – Вс: 12:00 – 18:00</p>
+
+    
+<!-- Добавляем иконки для WhatsApp и Instagram в футер или в нужное место на странице -->
+<footer>
+  <div class="social-links">
+    <a href="https://wa.me/77088107336" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="social-icon" />
+    </a>
+    <a href="https://www.instagram.com/kstbva9/profilecard/?igsh=bmRuOGFhdXY0bmo5" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon" />
+    </a>
+  </div>
+</footer>
+
+<style>
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+  }
+
+  .social-icon:hover {
+    transform: scale(1.1);
+  }
+</style>
+
+      <a href="index.html" class="back-button">← Назад</a>
+    </div>
+  </div>
+
+</body>
+</html>

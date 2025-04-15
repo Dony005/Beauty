@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Каталог — Beauté</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+        url('https://i.pinimg.com/736x/8d/0f/90/8d0f90e5a98953baec04fb85bc69b680.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      padding: 40px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    }
+    nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  position: relative;
+  transition: all 0.4s ease;
+  font-family: 'Lora', serif;
+}
+
+nav a::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #e6c26b;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  transition: width 0.4s ease;
+}
+
+nav a:hover {
+  color: #e6c26b;
+  transform: scale(1.07);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .product {
+      background-color: rgba(255,255,255,0.08);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover { transform: translateY(-5px); }
+
+    .product img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .product h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .product .price {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      color: #e6c26b;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .product button {
+      margin-top: 10px;
+      padding: 8px 20px;
+      border: none;
+      background-color: #fff;
+      color: #000;
+      border-radius: 25px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .product button:hover {
+      background-color: #e6c26b;
+      color: #000;
+    }
+
+    .back-btn {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .back-btn a {
+      text-decoration: none;
+      color: #fff;
+      background-color: #111;
+      padding: 10px 25px;
+      border-radius: 30px;
+      transition: background-color 0.3s ease;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .back-btn a:hover { background-color: #333; }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.95);
+      overflow-y: auto;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+
+    .modal img {
+      width: 400px;
+      max-width: 100%;
+      border-radius: 15px;
+    }
+
+    .modal-details {
+      max-width: 500px;
+    }
+
+    .modal-details h3 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .modal-details p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .modal-details .price {
+      font-size: 20px;
+      color: #e6c26b;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      cursor: pointer;
+      color: #fff;
+      z-index: 1001;
+    }
+
+    .close-modal:hover {
+      color: #e6c26b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Beauté</div>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О нас</a>
+      <a href="contact.html">Контакты</a>
+
+    </nav>
+  </header>
+
+  <h1>Лимитированная коллекция</h1>
+
+  <div class="catalog" id="catalog"></div>
+
+  <div class="back-btn">
+    <a href="index.html">Назад</a>
+  </div>
+
+  <div class="modal" id="productModal">
+    <div class="close-modal" onclick="closeModal()">&times;</div>
+    <div class="modal-container" id="modalContent"></div>
+  </div>
+
+  <script>
+    const products = [
+      {
+        name: "Помада Rouge Intense",
+        price: "₸5 200",
+        volume: "3 мл",
+        availability: "В наличии",
+        delivery: "По всему Казахстану",
+        description: "Насыщенный оттенок и увлажнение в одном флаконе.",
+        image: "https://avatars.mds.yandex.net/i?id=957ccdbc7b2005ed7e377ac4712c34dc-4552383-images-thumbs&n=13"
+      },
+      {
+        name: "Помада Velvet Touch",
+        price: "₸4 800",
+        volume: "3.5 мл",
+        availability: "В наличии",
+        delivery: "1–3 дня",
+        description: "Бархатный финиш и стойкость на целый день.",
+        image: "https://avatars.mds.yandex.net/i?id=3814ce403c1407a7d58448c9f9bb720e04b10955-5112218-images-thumbs&n=13"
+      },
+      {
+        name: "Тональный крем Lumière",
+        price: "₸6 500",
+        volume: "30 мл",
+        availability: "Ограничено",
+        delivery: "Курьерская доставка",
+        description: "Лёгкое сияющее покрытие для естественного тона кожи.",
+        image: "https://avatars.mds.yandex.net/i?id=e96c82bb2e4ada3f94948ea9240f4de31d97c2ee-5865914-images-thumbs&n=13"
+      },
+      {
+        name: "Тушь Volume Lash",
+        price: "₸3 900",
+        volume: "10 мл",
+        availability: "В наличии",
+        delivery: "Доставка по Алматы",
+        description: "Объём и длина с первого взмаха кисти.",
+        image: "https://avatars.mds.yandex.net/i?id=2f27525a5d3d5b1049ca172c011af35f22d78ecb-5232519-images-thumbs&n=13"
+      },
+      {
+        name: "Консиллер Radiant Cover",
+        price: "₸4 300",
+        volume: "5 мл",
+        availability: "В наличии",
+        delivery: "По всему Казахстану",
+        description: "Скрывает несовершенства и освежает взгляд.",
+        image: "https://avatars.mds.yandex.net/i?id=151f0be38b4723f17cdb63494f06af417e22373a-10877207-images-thumbs&n=13.jpg"
+      },
+      {
+        name: "Подводка Black Precision",
+        price: "₸3 500",
+        volume: "2 мл",
+        availability: "Ограниченно",
+        delivery: "Доставка за 2 дня",
+        description: "Тонкий фломастер для идеальных стрелок.",
+        image: "https://cdn1.ozone.ru/s3/multimedia-8/6391357232.jpg"
+      },
+      {
+        name: "Карандаш для бровей Sculpt Brow",
+        price: "₸2 900",
+        volume: "1.5 г",
+        availability: "В наличии",
+        delivery: "1–2 дня",
+        description: "Идеальная форма и насыщенный цвет бровей.",
+        image: "https://avatars.mds.yandex.net/i?id=bf19467a695358bd2c8f6bbd34121645d17ef0a6-7036630-images-thumbs&n=13.jpg"
+      },
+      {
+        name: "Гель для бровей Brow Fix",
+        price: "₸3 100",
+        volume: "6 мл",
+        availability: "В наличии",
+        delivery: "По всему Казахстану",
+        description: "Фиксация без склеивания и блеска.",
+        image: "https://avatars.mds.yandex.net/i?id=02a62a143bdc2721911c48c257d903d3_l-4398781-images-thumbs&n=13.jpg"
+      },
+      {
+        name: "Крем для лица Hydra Glow",
+        price: "₸7 200",
+        volume: "50 мл",
+        availability: "В наличии",
+        delivery: "Курьерская доставка",
+        description: "Глубокое увлажнение и сияние кожи.",
+        image: "https://avatars.mds.yandex.net/i?id=4532e5a708c70cf2b4292c0685a4f3fdecf2d915-6946731-images-thumbs&n=13.jpg"
+      },
+      {
+        name: "Кисточка Luxe Brush #12",
+        price: "₸2 600",
+        volume: "Один предмет",
+        availability: "В наличии",
+        delivery: "1–3 дня",
+        description: "Профессиональная кисть для точного нанесения.",
+        image: "https://avatars.mds.yandex.net/i?id=8ca873e917f4ed8af65ba3dc7bc95f1c-4843898-images-thumbs&n=13.jpg"
+      }
+    ];
+
+    const catalog = document.getElementById("catalog");
+
+    products.forEach((product, index) => {
+      const item = document.createElement("div");
+      item.classList.add("product");
+      item.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <div class="price">${product.price}</div>
+        <button onclick="openModal(${index})">Подробнее</button>
+      `;
+      catalog.appendChild(item);
+    });
+
+    function openModal(index) {
+      const p = products[index];
+      const modal = document.getElementById("productModal");
+      const content = document.getElementById("modalContent");
+      content.innerHTML = `
+        <img src="${p.image}" alt="${p.name}">
+        <div class="modal-details">
+          <h3>${p.name}</h3>
+          <p class="price">${p.price}</p>
+          <p><strong>Объём:</strong> ${p.volume}</p>
+          <p><strong>Наличие:</strong> ${p.availability}</p>
+          <p><strong>Доставка:</strong> ${p.delivery}</p>
+          <p>${p.description}</p>
+        </div>
+      `;
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("productModal").style.display = "none";
+    }
+  </script>
+</body>
+</html>  
