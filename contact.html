@@ -18,7 +18,7 @@
         url('https://i.pinimg.com/736x/8d/0f/90/8d0f90e5a98953baec04fb85bc69b680.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -32,19 +32,23 @@
 
     header {
       display: flex;
-      justify-content: flex-end;
-      padding: 40px;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 60px;
       font-family: 'DM Serif Display', serif;
     }
 
     .logo {
       font-size: 36px;
-      font-weight: bold;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
 
+    nav {
+      display: flex;
+      gap: 40px;
+    }
+
     nav a {
-      margin-left: 30px;
       text-decoration: none;
       color: #fff;
       font-size: 18px;
@@ -76,7 +80,7 @@
 
     .container {
       max-width: 900px;
-      margin: 100px auto;
+      margin: 80px auto;
       background-color: rgba(0, 0, 0, 0.6);
       padding: 50px;
       border-radius: 10px;
@@ -105,7 +109,7 @@
 
     .back-button {
       display: inline-block;
-      margin-top: 40px;
+      margin-top: 50px;
       padding: 12px 30px;
       background-color: #fff;
       color: #000;
@@ -136,7 +140,41 @@
       width: 100%;
     }
 
+    footer {
+      margin-top: 50px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.1);
+    }
+
     @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 30px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+      }
+
       .container {
         margin: 40px 20px;
         padding: 30px;
@@ -148,6 +186,10 @@
 
       .info {
         font-size: 16px;
+      }
+
+      .logo {
+        font-size: 28px;
       }
     }
   </style>
@@ -168,7 +210,7 @@
       <p>Если у вас возникли вопросы или предложения, мы всегда готовы помочь.</p>
 
       <strong>Email:</strong>
-      <p>support@beaute.kz</p>
+      <p>beauty.dana@gmail.com</p>
 
       <strong>Телефон:</strong>
       <p>+7 (708) 810-73-36</p>
@@ -179,36 +221,16 @@
       <strong>Часы работы:</strong>
       <p>Пн – Пт: 10:00 – 20:00<br>Сб – Вс: 12:00 – 18:00</p>
 
-    
-<!-- Добавляем иконки для WhatsApp и Instagram в футер или в нужное место на странице -->
-<footer>
-  <div class="social-links">
-    <a href="https://wa.me/77088107336" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="social-icon" />
-    </a>
-    <a href="https://www.instagram.com/kstbva9/profilecard/?igsh=bmRuOGFhdXY0bmo5" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon" />
-    </a>
-  </div>
-</footer>
-
-<style>
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .social-icon {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s ease;
-  }
-
-  .social-icon:hover {
-    transform: scale(1.1);
-  }
-</style>
+      <footer>
+        <div class="social-links">
+          <a href="https://wa.me/77088107336" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="social-icon" />
+          </a>
+          <a href="https://www.instagram.com/kstbva9/profilecard/?igsh=bmRuOGFhdXY0bmo5" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon" />
+          </a>
+        </div>
+      </footer>
 
       <a href="index.html" class="back-button">← Назад</a>
     </div>
